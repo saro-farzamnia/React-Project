@@ -1,25 +1,26 @@
-const ContactList = ({contacts, deletaHandler}) => {
+import style from "./ContactList.module.css"
+const ContactList = ({contacts, deleteHandler}) => {
   return (
-    <div>
-      <h2>Contact list</h2>
+    <div className={style.parent}>
+      <h2 className={style.title}>Contact list</h2>
       {
-      contacts.lenght ? (
+      contacts.length ? (
             <ul>
                 {
                     contacts.map((contact) => (
-                        <li key={contact.id}>
+                        <li key={contact.id} className={style.User}>
                             <p>
                                 {contact.name} {contact.lastName}
                             </p>
                             <p>
-                                {/* <span></span> */}
+                                <span>📧</span>
                                 {contact.email}
                             </p>
                             <p>
-                                {/* <span></span> */}
+                                <span>📞</span>
                                 {contact.phone}
                             </p>
-                            <button onClick={()=>deletaHandler(contact.id)}>delet</button>
+                            <button onClick={() => deleteHandler(contact.id)}>🗑️</button>
                         </li>
                     ))
                 }
